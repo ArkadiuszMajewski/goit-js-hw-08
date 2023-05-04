@@ -2,7 +2,8 @@ import Player from '@vimeo/player';
 // const iframe = document.querySelector('iframe');
 // const player = new Vimeo.Player(iframe);
 const player = new Player('vimeo-player', {});
-console.log();
+console.log(player.getVideoHeight());
+
 var throttle = require('lodash.throttle');
 
 const onPlay = function (data) {
