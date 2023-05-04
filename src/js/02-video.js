@@ -5,10 +5,16 @@ const player = new Player('vimeo-player', {
   width: 640,
 });
 
-player.on('timeupdate', function (data) {
-  localStorage.setItem('videoplayer-current-time', data.seconds);
-});
-player.on('loaded', () => {
+player.on(
+  'timeupdate',
+  throttle(data => {
+    localStorage.setItem('videoplayer-current-time', data.seconds);
+
+    console.log(data.seconds);
+  }, 1100)
+);
+
+window.addEventListener('load', () => {
   player.setCurrentTime(localStorage.getItem('videoplayer-current-time'));
 });
 //
