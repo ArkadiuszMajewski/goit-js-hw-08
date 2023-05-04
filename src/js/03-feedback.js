@@ -26,16 +26,18 @@ window.addEventListener('load', event => {
 
 form.addEventListener('submit', event => {
   event.preventDefault();
-  console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
 
-  console.log(
-    `Email = ${JSON.parse(localStorage.getItem('feedback-form-state')).email}`
-  );
-  console.log(
-    `Message = ${
-      JSON.parse(localStorage.getItem('feedback-form-state')).message
-    }`
-  );
+  if (localStorage.getItem('feedback-form-state') !== null) {
+    console.log(JSON.parse(localStorage.getItem('feedback-form-state')));
+    console.log(
+      `Email = ${JSON.parse(localStorage.getItem('feedback-form-state')).email}`
+    );
+    console.log(
+      `Message = ${
+        JSON.parse(localStorage.getItem('feedback-form-state')).message
+      }`
+    );
+  }
   email.value = null;
   message.value = null;
   localStorage.removeItem('feedback-form-state');
